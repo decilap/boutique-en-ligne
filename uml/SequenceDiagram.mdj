@@ -86,7 +86,7 @@
 									"font": "Arial;13;0",
 									"left": 8,
 									"top": 8,
-									"width": 1265,
+									"width": 1081,
 									"height": 313,
 									"nameLabel": {
 										"$ref": "AAAAAAF+KZ0v5du087U="
@@ -249,7 +249,7 @@
 													"top": 47,
 													"width": 214,
 													"height": 13,
-													"text": "unProduit: Product"
+													"text": "catalogueProduit: Product"
 												},
 												{
 													"_type": "LabelView",
@@ -1073,7 +1073,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KZ0v49uxEI4="
 							},
-							"name": "unProduit",
+							"name": "catalogueProduit",
 							"represent": {
 								"$ref": "AAAAAAF+KaF3B9vi8iE="
 							},
