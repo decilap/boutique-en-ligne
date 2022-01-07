@@ -31,8 +31,8 @@ VALUES("{product_breadcrumb_label}");\n`, flower));
 function generateSqlProduct(idsCat){
         ShopJson['flowers'].forEach(function(flower) {            
     ofs.write(
-format(`INSERT INTO product (name, price, image, category_id, rating, like) 
-VALUES("{product_name}", ${parseInt(flower.product_price)}, "{product_url_picture}", 0, false, ${idsCat[flower.product_breadcrumb_label]});\n`, flower));
+format(`INSERT INTO product (name, price, stock, image, description, category_id, rating) 
+VALUES("{product_name}", ${parseInt(flower.product_price)}, 10, "{product_url_picture}", "", ${idsCat[flower.product_breadcrumb_label]}, 0);\n`, flower));
     }, this); 
 }
     

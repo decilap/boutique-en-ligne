@@ -1,5 +1,7 @@
 package com.dvdPickers.app.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -7,11 +9,13 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Data
+/*
 @Table(	name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
-        })
+        })*/
 public class User {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,6 +36,6 @@ public class User {
 
         private Roles roles;
 
-        @OneToMany
-        private List<Order> orderList;
+        //@OneToMany
+        //private List<Order> orderList;
 }
