@@ -25,7 +25,7 @@ public class CategoryListController {
 
 
     @GetMapping("/categories")
-    public List<CategoryDto> getPosts() {
+    public List<CategoryDto> getCategories() {
         List<Category> categories = categoryService.findAll();
 
         return categories.stream()
