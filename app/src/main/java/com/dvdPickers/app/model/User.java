@@ -6,7 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -18,7 +20,7 @@ import java.util.List;
         })*/
 public class User {
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
         @NotBlank
@@ -31,10 +33,30 @@ public class User {
         private String username;
 
         @NotBlank
+        @Size(max = 20)
+        private String lastName;
+
+        @NotBlank
+        @Size(max = 20)
+        private String firstName;
+
+        @NotBlank
+        @Size(max = 100)
+        private String avatar;
+
+        @NotBlank
         @Size(max = 120)
         private String password;
 
-        private Roles roles;
+
+
+        @ManyToMany(fetch = FetchType.EAGER)
+        @JoinTable(
+                name = "users_roles",
+                joinColumns = @JoinColumn(name = "user_id"),
+                inverseJoinColumns = @JoinColumn(name = "role_id")
+        )
+        private Set<Role> roles = new HashSet<>();
 
         //@OneToMany
         //private List<Order> orderList;

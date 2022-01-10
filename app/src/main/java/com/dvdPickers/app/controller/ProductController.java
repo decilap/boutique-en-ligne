@@ -22,9 +22,9 @@ public class ProductController {
 
     @PostMapping("/products")
     public List<ProductDto> getPosts(@RequestBody SearchCriteriaProduct searchCriteriaProduct) {
-        List<Product> posts = productService.findAll(searchCriteriaProduct.getPage(), searchCriteriaProduct.getSize());
-        return posts.stream()
-                .map(post -> modelMapper.map(post, ProductDto.class))
+        List<Product> products = productService.findAll(searchCriteriaProduct.getPage(), searchCriteriaProduct.getSize());
+        return products.stream()
+                .map(product -> modelMapper.map(product, ProductDto.class))
                 .collect(Collectors.toList());
     }
 }

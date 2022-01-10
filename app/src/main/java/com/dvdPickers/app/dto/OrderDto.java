@@ -1,9 +1,7 @@
 package com.dvdPickers.app.dto;
-
 import com.dvdPickers.app.model.Product;
 import com.dvdPickers.app.model.User;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 

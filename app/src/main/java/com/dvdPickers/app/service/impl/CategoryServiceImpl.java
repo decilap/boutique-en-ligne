@@ -6,6 +6,7 @@ import com.dvdPickers.app.model.Category;
 import com.dvdPickers.app.model.Product;
 import com.dvdPickers.app.repository.CategoryRepository;
 import com.dvdPickers.app.repository.ProductRepository;
+import com.dvdPickers.app.repository.UserRepository;
 import com.dvdPickers.app.service.CategoryService;
 import com.dvdPickers.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,12 @@ import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-
-
     @Autowired
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
+
 
     @Override
-    public CategoryDto find(Long id) {
+    public Category find(Long id) {
         return null;
     }
 
@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto update(CategoryDto categoryDto) {
+    public Category update(CategoryDto categoryDto) {
         return null;
     }
 
@@ -41,6 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void delete(CategoryDto categoryDto) {
 
     }
+
 
     public List<Category> findAll() {
         return categoryRepository.findAll();

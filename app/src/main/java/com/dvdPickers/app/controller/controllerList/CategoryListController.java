@@ -27,7 +27,6 @@ public class CategoryListController {
     @GetMapping("/categories")
     public List<CategoryDto> getPosts() {
         List<Category> categories = categoryService.findAll();
-
         return categories.stream()
                 .map(category -> modelMapper.map(category, CategoryDto.class))
                 .collect(Collectors.toList());

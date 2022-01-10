@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public ProductDto find(Long id) {
+    public Product find(Long id) {
         return null;
     }
 
@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto update(ProductDto productDto) {
+    public Product update(ProductDto productDto) {
         return null;
     }
 
@@ -39,12 +39,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public List<Product> findAll(int page, int size) {
-
-        PageRequest pageReq
-                = PageRequest.of(page, size);
-
+        PageRequest pageReq = PageRequest.of(page, size);
         Page<Product> products = productRepository.findAll(pageReq);
-        return products.getContent();
+        return  products.getContent();
     }
 
 }

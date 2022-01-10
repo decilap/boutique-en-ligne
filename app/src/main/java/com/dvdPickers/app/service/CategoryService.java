@@ -7,9 +7,9 @@ import java.util.List;
 
 
 public interface CategoryService {
-    public CategoryDto find(Long id);
-    public void save(CategoryDto entity);
-    public CategoryDto update(CategoryDto categoryDto);
-    public void delete(CategoryDto categoryDto);
-    public List<Category> findAll();
+    Category find(Long id);
+    void save(CategoryDto entity);
+    Category update(CategoryDto categoryDto);
+    void delete(CategoryDto categoryDto);
+    List<Category> findAll();
 }
