@@ -1,5 +1,7 @@
 package com.dvdPickers.app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,11 +28,12 @@ public class Comment {
     String body;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="product_id")
     private Product product;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    private Customer user;
 }
 

@@ -1,23 +1,16 @@
 package com.dvdPickers.app.dto;
-import com.dvdPickers.app.model.Product;
-import com.dvdPickers.app.model.User;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import lombok.Data;
-import javax.persistence.*;
+
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Data
-public class OrderDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class OrderDto  implements Serializable {
     private Long id;
-
-    @ManyToMany
-    private List<Product> products;
-
-    private float totalPrice;
-
-    @ManyToOne
-    private User user;
-
-
+    @JsonIncludeProperties({"id", "firstName", "lastName"})
+    private CustomerDto customer;
+    private List<OrderLineDto> orderLines;
+    private Date date;
 }

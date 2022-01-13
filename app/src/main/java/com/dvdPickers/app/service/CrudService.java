@@ -1,7 +1,5 @@
 package com.dvdPickers.app.service;
 
-import com.dvdPickers.app.model.User;
-
 import java.util.List;
 
 public interface CrudService<T, D> {

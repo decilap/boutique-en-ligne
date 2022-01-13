@@ -1,8 +1,8 @@
 package com.dvdPickers.app.service;
 
-import com.dvdPickers.app.dto.UserDto;
-import com.dvdPickers.app.model.User;
+import com.dvdPickers.app.dto.CustomerDto;
+import com.dvdPickers.app.model.Customer;
 
-public interface CommentService extends CrudService<User, UserDto> {
+public interface CommentService extends CrudService<Customer, CustomerDto> {
 
 }

@@ -1,11 +1,14 @@
 package com.dvdPickers.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +21,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })*/
-public class User {
+public class Customer implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
@@ -48,7 +51,8 @@ public class User {
         @Size(max = 120)
         private String password;
 
-
+        @OneToMany(mappedBy = "customer")
+        private List<Order> orders;
 
         @ManyToMany(fetch = FetchType.EAGER)
         @JoinTable(
@@ -57,7 +61,4 @@ public class User {
                 inverseJoinColumns = @JoinColumn(name = "role_id")
         )
         private Set<Role> roles = new HashSet<>();
-
-        //@OneToMany
-        //private List<Order> orderList;
 }

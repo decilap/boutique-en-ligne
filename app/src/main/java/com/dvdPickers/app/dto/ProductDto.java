@@ -7,21 +7,18 @@ import com.dvdPickers.app.model.Vote;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Data
-public class ProductDto {
+public class ProductDto implements Serializable {
     private Long id;
     private String name;
     private String image;
-    private float price;
+    private double price;
     private int stock;
-    private Category category;
-    @JsonIgnoreProperties("product")
-    private List<Vote> votes;
-    @JsonIgnoreProperties("product")
+    private CategoryDto category;
+    private List<VoteDto> votes;
+    //@JsonIgnoreProperties("comment.user.id")
     private List<Comment> comments;
 }

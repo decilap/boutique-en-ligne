@@ -1,7 +1,7 @@
 package com.dvdPickers.app.service.impl;
 
-import com.dvdPickers.app.dto.UserDto;
-import com.dvdPickers.app.model.User;
+import com.dvdPickers.app.dto.CustomerDto;
+import com.dvdPickers.app.model.Customer;
 import com.dvdPickers.app.repository.UserRepository;
 import com.dvdPickers.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,29 +17,29 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User find(Long id) {
+    public Customer find(Long id) {
         return null;
     }
 
     @Override
-    public void save(UserDto entityDto) {
+    public void save(CustomerDto entityDto) {
 
     }
 
     @Override
-    public User update(UserDto entitytDto) {
+    public Customer update(CustomerDto entitytDto) {
         return null;
     }
 
     @Override
-    public void delete(UserDto entityDto) {
+    public void delete(CustomerDto entityDto) {
 
     }
 
     @Override
-    public List<User> findAll(int page, int size) {
+    public List<Customer> findAll(int page, int size) {
         PageRequest pageReq = PageRequest.of(page, size);
-        Page<User> users = userRepository.findAll(pageReq);
+        Page<Customer> users = userRepository.findAll(pageReq);
         return  users.getContent();
     }
 }
