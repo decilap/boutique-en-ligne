@@ -28,8 +28,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void save(CategoryDto entity) {
-
+    public Category save(Category entity) {
+        return categoryRepository.save(entity);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.dvdPickers.app.model;
 
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,6 +39,9 @@ public class Customer implements Serializable {
         @Size(max = 20)
         private String lastName;
 
+        @Temporal(TemporalType.DATE)
+        private Date createdAt;
+
         @NotBlank
         @Size(max = 20)
         private String firstName;
@@ -51,8 +54,13 @@ public class Customer implements Serializable {
         @Size(max = 120)
         private String password;
 
+        @JsonBackReference
         @OneToMany(mappedBy = "customer")
         private List<Order> orders;
+
+        /*@JsonBackReference
+        @OneToMany(mappedBy = "customer")
+        private List<Invoice> invoices;*/
 
         @ManyToMany(fetch = FetchType.EAGER)
         @JoinTable(

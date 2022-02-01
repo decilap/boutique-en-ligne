@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -19,22 +20,22 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public Product find(Long id) {
+    public Optional<Product> find(Long id) {
+        return this.productRepository.findById(id);
+    }
+
+    @Override
+    public Product save(Product entity) {
         return null;
     }
 
     @Override
-    public void save(ProductDto entity) {
+    public void update(Long id, Product product) {
 
     }
 
     @Override
-    public Product update(ProductDto productDto) {
-        return null;
-    }
-
-    @Override
-    public void delete(ProductDto productDto) {
+    public void delete(Long id) {
 
     }
 

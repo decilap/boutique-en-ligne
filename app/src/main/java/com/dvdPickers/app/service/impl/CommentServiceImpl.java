@@ -1,37 +1,42 @@
 package com.dvdPickers.app.service.impl;
 
-import com.dvdPickers.app.dto.CustomerDto;
-import com.dvdPickers.app.model.Customer;
+import com.dvdPickers.app.model.Comment;
+import com.dvdPickers.app.repository.CommentRepository;
 import com.dvdPickers.app.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CommentServiceImpl implements CommentService {
 
+    @Autowired
+    private CommentRepository commentRepository;
+
     @Override
-    public Customer find(Long id) {
+    public Optional<Comment> find(Long id) {
+        return this.commentRepository.findById(id);
+    }
+
+    @Override
+    public Comment save(Comment comment) {
         return null;
     }
 
     @Override
-    public void save(CustomerDto entityDto) {
+    public void update(Long id, Comment comment) {
 
     }
 
     @Override
-    public Customer update(CustomerDto entitytDto) {
-        return null;
-    }
-
-    @Override
-    public void delete(CustomerDto entityDto) {
+    public void delete(Long id) {
 
     }
 
-    @Override
-    public List<Customer> findAll(int page, int size) {
-        return null;
+    public Page<Comment> findAll(PageRequest pageReq) {
+        return commentRepository.findAll(pageReq);
     }
 }

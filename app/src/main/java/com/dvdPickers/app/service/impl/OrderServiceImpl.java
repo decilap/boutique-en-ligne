@@ -1,9 +1,6 @@
 package com.dvdPickers.app.service.impl;
-
-import com.dvdPickers.app.dto.OrderDto;
 import com.dvdPickers.app.model.Order;
 import com.dvdPickers.app.repository.OrderRepository;
-import com.dvdPickers.app.service.OrderService;
 import com.dvdPickers.app.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -18,23 +16,27 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
 
     @Override
-    public Order find(Long id) {
+    public Optional<Order> find(Long id) {
+        return this.orderRepository.findById(id);
+    }
+
+    @Override
+    public Order save(Order entity) {
         return null;
     }
 
     @Override
-    public void save(OrderDto entityDto) {
-
+    public void update(Long id, Order order) {
+        orderRepository.findById(id)
+                .orElseThrow (() -> new IllegalArgumentException("Invalid order Id:" + id));
+        orderRepository.save(order);
     }
 
     @Override
-    public Order update(OrderDto entitytDto) {
-        return null;
-    }
-
-    @Override
-    public void delete(OrderDto entityDto) {
-
+    public void delete(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid order Id:" + id));
+        orderRepository.delete(order);
     }
 
     @Override

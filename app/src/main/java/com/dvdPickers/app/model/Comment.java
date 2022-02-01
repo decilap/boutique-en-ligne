@@ -33,7 +33,7 @@ public class Comment {
     private Product product;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Customer user;
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;
 }
 

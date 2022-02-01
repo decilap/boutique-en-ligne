@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CategoryService {
     Category find(Long id);
-    void save(CategoryDto entity);
+    Category save(Category entity);
     Category update(CategoryDto categoryDto);
     void delete(CategoryDto categoryDto);
     List<Category> findAll();

@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,24 +18,18 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public Customer find(Long id) {
-        return null;
+    public Optional<Customer> find(Long id) {
+        return this.userRepository.findById(id);
     }
 
     @Override
-    public void save(CustomerDto entityDto) {
-
-    }
+    public Customer save(Customer entity) { return null; }
 
     @Override
-    public Customer update(CustomerDto entitytDto) {
-        return null;
-    }
+    public void update(Long id, Customer customer) {}
 
     @Override
-    public void delete(CustomerDto entityDto) {
-
-    }
+    public void delete(Long id) {}
 
     @Override
     public List<Customer> findAll(int page, int size) {

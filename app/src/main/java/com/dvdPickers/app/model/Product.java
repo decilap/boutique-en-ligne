@@ -1,13 +1,17 @@
 package com.dvdPickers.app.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +34,6 @@ public class Product implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
-    @JsonBackReference
     @OneToMany(mappedBy = "product")
     private List<Vote> votes;
 
@@ -38,17 +41,16 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product")
     private List<OrderLine> orderLines;
 
-
-    /*
     @JsonManagedReference
     @OneToMany(mappedBy = "product")
     private List<Comment> comments;
 
-    //@JsonManagedReference
+      /*//@JsonManagedReference
     @OneToMany(mappedBy = "product")
     private List<OrderLine> orderLines;
-
-
     */
 
+    public void  Product(){
+
+    };
 }

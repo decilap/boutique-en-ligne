@@ -3,6 +3,7 @@ package com.dvdPickers.app.controller.controllerList;
 import com.dvdPickers.app.dto.CategoryDto;
 import com.dvdPickers.app.model.Category;
 import com.dvdPickers.app.service.CategoryService;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,6 +27,9 @@ public class CategoryListController {
 
     @GetMapping("/categories")
     public List<CategoryDto> getPosts() {
+
+
+
         List<Category> categories = categoryService.findAll();
         return categories.stream()
                 .map(category -> modelMapper.map(category, CategoryDto.class))

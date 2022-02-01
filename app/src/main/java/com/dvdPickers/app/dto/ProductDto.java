@@ -1,12 +1,7 @@
 package com.dvdPickers.app.dto;
 
-import com.dvdPickers.app.model.Category;
-import com.dvdPickers.app.model.Comment;
-import com.dvdPickers.app.model.Role;
-import com.dvdPickers.app.model.Vote;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,6 +14,6 @@ public class ProductDto implements Serializable {
     private int stock;
     private CategoryDto category;
     private List<VoteDto> votes;
-    //@JsonIgnoreProperties("comment.user.id")
-    private List<Comment> comments;
+    @JsonIgnoreProperties("product")
+    private List<CommentDto> comments;
 }

@@ -1,4 +1,5 @@
 package com.dvdPickers.app.dto;
+import com.dvdPickers.app.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import lombok.Data;
 
@@ -14,6 +15,8 @@ public class CommentDto implements Serializable {
     Date createdAt;
     boolean isPurchased;
     String body;
-    @JsonIncludeProperties({"id", "username", "avatar"})
+    @JsonIncludeProperties({"id", "name"})
     private ProductDto product;
+    @JsonIncludeProperties({"id", "username", "avatar"})
+    private Customer customer;
 }

@@ -1,4 +1,5 @@
 package com.dvdPickers.app.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -16,16 +17,20 @@ public class Order implements Serializable {
     private Long id;
 
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private Date createdAt;
+
+    @OneToOne(mappedBy = "order")
+    private Invoice invoice;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
-/*
+    /*
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -50,6 +55,4 @@ public class Order implements Serializable {
 
         return orderLine;
     }*/
-
-
 }
